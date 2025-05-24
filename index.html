@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LabCreator by Chameza Group - Modular Lab Furniture Solutions" />
+  <meta name="keywords" content="LabCreator, Modular Labs, Lab Furniture, Chameza Group" />
+  <meta name="author" content="Chameza Group" />
+  <title>LabCreator | Modular Lab Solutions | Chameza Group</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet" />
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* Root variables for brand colors */
+    :root {
+      --brand-red: #d6001c;
+      --brand-orange: #ff6f00;
+      --brand-green: #28a745;
+      --brand-darkblue: #003366;
+      --brand-lightgray: #f5f5f5;
+      --brand-black: #111;
+      --brand-white: #fff;
+      --shadow-red: rgba(214, 0, 28, 0.25);
+      --shadow-orange: rgba(255, 111, 0, 0.25);
+    }
+
+    /* Global resets & font */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--brand-white);
+      color: var(--brand-black);
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    nav.navbar {
+      background: var(--brand-white);
+      box-shadow: 0 2px 12px var(--shadow-red);
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+      transition: background-color 0.3s ease;
+    }
+    nav.navbar.scrolled {
+      background-color: var(--brand-red);
+      box-shadow: 0 2px 12px var(--shadow-red);
+    }
+    nav .navbar-brand img {
+      height: 48px;
+      filter: drop-shadow(1px 1px 1px var(--shadow-red));
+      transition: transform 0.3s ease;
+    }
+    nav .navbar-brand img:hover {
+      transform: scale(1.1) rotate(3deg);
+    }
+    nav .nav-link {
+      font-weight: 600;
+      color: var(--brand-darkblue);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    nav .nav-link.active,
+    nav .nav-link:hover {
+      color: var(--brand-red);
+    }
+    nav .btn-cta {
+      background: var(--brand-red);
+      color: var(--brand-white);
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 8px 22px;
+      box-shadow: 0 4px 8px var(--shadow-red);
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav .btn-cta:hover {
+      background: var(--brand-orange);
+      box-shadow: 0 6px 12px var(--shadow-orange);
+      color: var(--brand-white);
+    }
+
+    /* Hero Section */
+    #hero {
+      
+      color: var(--brand-white);
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      filter: blur(70px);
+      animation: pulse 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.15; }
+      50% { transform: scale(1.3); opacity: 0.3; }
+    }
+    #hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      z-index: 1;
+      position: relative;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    #hero p {
+      font-size: 1.3rem;
+      margin: 20px 0 40px;
+      font-weight: 500;
+      z-index: 1;
+      position: relative;
+    }
+    #hero .btn-primary {
+      padding: 14px 36px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 6px 15px var(--shadow-red);
+      transition: background-color 0.4s ease;
+    }
+    #hero .btn-primary:hover {
+      background-color: var(--brand-orange);
+      box-shadow: 0 8px 20px var(--shadow-orange);
+    }
+
+    /* Section Headings */
+    section h2.section-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--brand-red);
+      text-align: center;
+      margin: 60px 0 40px;
+      position: relative;
+    }
+    section h2.section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--brand-orange);
+      margin: 12px auto 0;
+      border-radius: 2px;
+      box-shadow: 0 0 12px var(--shadow-orange);
+    }
+
+    /* Features Section */
+    #features .feature-card {
+      background: var(--brand-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(214, 0, 28, 0.15);
+      padding: 30px 25px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    #features .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px var(--shadow-red);
+    }
+    #features .feature-card i {
+      font-size: 48px;
+      color: var(--brand-red);
+      margin-bottom: 18px;
+      transition: color 0.3s ease;
+    }
+    #features .feature-card:hover i {
+      color: var(--brand-orange);
+    }
+    #features .feature-card h5 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    #features .feature-card p {
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* Benefits Section */
+    #benefits {
+  background: var(--brand-lightgray);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#benefits .benefit-item {
+  position: relative;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--brand-darkblue);
+  /* Changed from inline-flex to flex */
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  text-align: left;
+  padding-left: 40px;
+  max-width: 800px;
+  margin: 0 auto 30px auto; /* center and add bottom margin */
+  width: 100%; /* full width up to max-width */
+  box-sizing: border-box; /* ensures padding doesn't break width */
+}
+
+#benefits .benefit-item::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: var(--brand-green);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+    /* Social Proof Section */
+    #social-proof {
+      padding: 60px 20px;
+      background: var(--brand-white);
+    }
+    #social-proof .testimonial {
+      border-left: 6px solid var(--brand-red);
+      padding-left: 20px;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 30px;
+      position: relative;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      border-radius: 12px;
+      padding: 30px;
+      transition: box-shadow 0.3s ease;
+    }
+    #social-proof .testimonial:hover {
+      box-shadow: 0 8px 30px var(--shadow-red);
+    }
+    #social-proof .client-logo {
+      max-height: 140px;
+      margin: 0 20px;
+      
+      transition: filter 0.3s ease;
+    }
+    #social-proof .client-logo:hover {
+      filter: grayscale(0%);
+    }
+
+    /* About Section */
+    #about {
+      background: var(--brand-lightgray);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    #about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--brand-darkblue);
+    }
+
+    /* Pricing Section */
+    #pricing {
+      padding: 60px 20px;
+      background: var(--brand-white);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    #pricing .price-card {
+      background: var(--brand-lightgray);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 25px rgba(255, 111, 0, 0.15);
+      text-align: center;
+      flex: 1 1 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    #pricing .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px var(--shadow-orange);
+    }
+    #pricing .price-card h3 {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--brand-red);
+    }
+    #pricing .price-card .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: var(--brand-orange);
+    }
+    #pricing .price-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+      color: #444;
+      font-weight: 500;
+    }
+    #pricing .price-card ul li {
+      margin-bottom: 12px;
+    }
+    #pricing .price-card button {
+      background: var(--brand-red);
+      color: var(--brand-white);
+      border: none;
+      padding: 12px 30px;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 6px 15px var(--shadow-red);
+      transition: background-color 0.4s ease;
+      cursor: pointer;
+    }
+    #pricing .price-card button:hover {
+      background-color: var(--brand-orange);
+      box-shadow: 0 8px 20px var(--shadow-orange);
+    }
+
+    /* FAQs Section */
+    #faqs {
+      background: var(--brand-lightgray);
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto 60px;
+    }
+    #faqs .accordion-button {
+      font-weight: 600;
+      color: var(--brand-red);
+      background-color: var(--brand-white);
+      box-shadow: 0 4px 15px var(--shadow-red);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      transition: background-color 0.3s ease;
+    }
+    #faqs .accordion-button:not(.collapsed) {
+      background-color: var(--brand-orange);
+      color: var(--brand-white);
+    }
+    #faqs .accordion-body {
+      font-weight: 500;
+      color: #333;
+      background: var(--brand-white);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 0 15px rgba(214, 0, 28, 0.1);
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 60px 20px;
+      background: var(--brand-white);
+      max-width: 700px;
+      margin: 0 auto 80px;
+    }
+    #contact form {
+      background: var(--brand-lightgray);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(255, 111, 0, 0.15);
+    }
+    #contact label {
+      font-weight: 600;
+      color: var(--brand-red);
+    }
+    #contact input,
+    #contact textarea {
+      border-radius: 12px;
+      border: 2px solid var(--brand-orange);
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      border-color: var(--brand-red);
+      outline: none;
+      box-shadow: 0 0 10px var(--shadow-red);
+    }
+    #contact button {
+      background: var(--brand-red);
+      color: var(--brand-white);
+      border: none;
+      padding: 14px 36px;
+      font-weight: 700;
+      border-radius: 50px;
+      width: 100%;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 20px var(--shadow-red);
+      transition: background-color 0.4s ease;
+      cursor: pointer;
+    }
+    #contact button:hover {
+      background-color: var(--brand-orange);
+      box-shadow: 0 10px 25px var(--shadow-orange);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--brand-darkblue);
+      color: var(--brand-white);
+      padding: 40px 20px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    footer a {
+      color: var(--brand-orange);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2.5rem;
+      }
+      #pricing {
+        flex-direction: column;
+        gap: 30px;
+      }
+      #features .feature-card i {
+        font-size: 36px;
+      }
+    }
+
+
+    /* Reset / Base */
+#project-execution {
+  background-color: #f9fafb;
+  font-family: 'Poppins', sans-serif;
+  max-width: 1100px;
+  margin: 4rem auto 6rem auto;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 40px rgba(214, 0, 28, 0.1);
+  color: #374151; /* Gray 700 */
+  text-align: left;
+}
+
+#project-execution h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #d6001c;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.execution-step {
+  background-color: #ffffff;
+  border-left: 4px solid transparent;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.8rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 18px rgba(214, 0, 28, 0.07);
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.execution-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+  border-left-color: #d6001c;
+  box-shadow: 0 18px 28px rgba(214, 0, 28, 0.18);
+}
+
+.execution-step:hover {
+  background-color: #fff5f5;
+  box-shadow: 0 25px 40px rgba(214, 0, 28, 0.25);
+  cursor: default;
+}
+
+.execution-step h3 {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #b91c1c; /* Darker red */
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.execution-step p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #4b5563; /* Gray 600 */
+  margin: 0;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+  #project-execution .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #project-execution {
+    padding: 2rem 1.25rem;
+  }
+
+  #project-execution h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .execution-step {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .execution-step h3 {
+    font-size: 1.375rem;
+  }
+
+  .execution-step p {
+    font-size: 0.95rem;
+  }
+}
+
+
+.project-description p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.logo-slider {
+  border-radius: 12px;
+  background: linear-gradient(90deg, #fce4e4, #ffdede);
+  padding: 2rem 0;
+  box-shadow: 0 6px 18px rgba(214, 0, 28, 0.15);
+}
+
+.client-logo {
+  width: 100px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 2px #d6001c66);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.client-logo:hover {
+  transform: scale(1.15) rotate(2deg);
+  filter: drop-shadow(0 0 12px #d6001c);
+  border: 2px solid #d6001c;
+}
+
+@keyframes slide-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.logo-slider {
+  border-radius: 12px;
+  background: linear-gradient(90deg, #fce4e4, #ffdede);
+  padding: 2rem 0;
+  box-shadow: 0 6px 18px rgba(214, 0, 28, 0.15);
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  width: calc(100px * 12); /* Adjust based on logo width and number of logos */
+}
+
+.client-logo {
+  width: 100px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 2px #d6001c66);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+@keyframes slide-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100px * 6)); /* Half of the total width */
+  }
+}
+
+
+
+
+    .lab-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+  
+    .lab-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      flex: 1 1 45%; /* roughly half the container */
+      max-width: 48%;
+    }
+  
+    .lab-img-box {
+      position: relative;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s ease;
+      height: 220px;
+    }
+  
+    .lab-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+  
+    .lab-img-box:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.85);
+    }
+  
+    .lab-hover-text {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      transition: opacity 0.4s ease;
+    }
+  
+    .lab-img-box:hover .lab-hover-text {
+      opacity: 1;
+    }
+  
+    /* Centered 5th image styles */
+    .lab-img-box.centered {
+      flex: 1 1 100%;
+      max-width: 600px;
+      margin: 2rem auto 0 auto;
+      height: 280px;
+    }
+  
+    @media (max-width: 768px) {
+      .lab-container {
+        flex-direction: column;
+        max-width: 100%;
+      }
+      .lab-group {
+        max-width: 100%;
+        flex: none;
+      }
+      .lab-img-box {
+        height: 200px;
+      }
+      .lab-img-box.centered {
+        max-width: 100%;
+        height: 240px;
+        margin-top: 1.5rem;
+      }
+    }
+
+  
+    .creative-heading {
+      position: relative;
+      display: inline-block;
+      font-weight: 900;
+      color: #b91c1c; /* Tailwind's red-700 */
+      font-size: 3.5rem; /* slightly bigger */
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 3rem;
+      user-select: none;
+    }
+  
+    /* Animated underline */
+    .creative-heading::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -12px;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 6px;
+      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      border-radius: 9999px;
+      box-shadow: 0 0 12px rgba(220, 38, 38, 0.7);
+      animation: pulseUnderline 2s infinite ease-in-out;
+    }
+  
+    @keyframes pulseUnderline {
+      0%, 100% {
+        opacity: 1;
+        width: 70px;
+      }
+      50% {
+        opacity: 0.6;
+        width: 90px;
+      }
+    }
+  
+    /* Accent icon */
+    .creative-heading .accent-icon {
+      position: absolute;
+      top: -18px;
+      right: -40px;
+      width: 30px;
+      height: 30px;
+      fill: #b91c1c;
+      filter: drop-shadow(0 0 2px rgba(185, 28, 28, 0.7));
+      animation: bounceIcon 3s infinite;
+    }
+  
+    @keyframes bounceIcon {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+
+    .video-background {
+  position: relative;
+  color: var(--brand-white);
+  padding: 100px 20px;
+  text-align: center;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  z-index: 1;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+.position-relative {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .video-background {
+    min-height: 60vh;
+  }
+  
+  .background-video {
+    display: none;
+  }
+  
+  .video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .video-background {
+    min-height: 60vh;
+  }
+  
+  .background-video {
+    display: block; /* Change from none to block */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+ 
+}
+}
+
+
+/* Enhanced Navigation Styles */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--brand-red);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  margin: 0 0.25rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+  }
+  
+  .nav-link::after {
+    bottom: -2px;
+  }
+}
+
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(119, 112, 112, 0.4) 100%);
+  z-index: 1;
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.text-shadow-md {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.display-3 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+  .lead {
+    font-size: 1.2rem !important;
+  }
+}
+ 
+  
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light px-4">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#hero">
+        <img src="img/logo1.png" alt="LabCreator Logo" />
+       
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#hero" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#benefits" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Benefits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#social-proof" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Clients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faqs" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a href="#contact" class="btn btn-cta" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Get a Quote</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="video-background position-relative text-white">
+    <!-- Video Overlay -->
+    <div class="video-overlay"></div>
+  
+    <!-- Background Video -->
+    <video class="background-video" autoplay loop muted playsinline>
+      <source src="videoplayback.mp4" type="video/mp4">
+    </video>
+  
+    <!-- Banner Content -->
+    <div class="container position-relative d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 90vh; z-index: 2;">
+      <h1 class="display-3 fw-bold mb-4 text-shadow-lg">
+        Future-Ready Modular Laboratories
+      </h1>
+      <p class="lead fw-medium mb-4 text-shadow-md" style="max-width: 720px; font-style: italic; font-size: 1.4rem;">
+        Powered by <strong class="text-warning">LabCreator</strong>, an innovation by <strong class="text-warning">Chameza Group</strong> — where cutting-edge design meets custom-built precision for tomorrow's research environments.
+      </p>
+      <a href="#contact" class="btn btn-lg btn-danger shadow-lg px-5 py-3 fw-semibold rounded-pill">
+        Get Your Lab Project Started
+      </a>
+    </div>
+  </section>
+  
+  <!-- Features -->
+  <section id="features" class="container my-5">
+    <h2 class="section-title">Why Choose LabCreator?</h2>
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <div class="feature-card text-center p-4">
+          <i class="bi bi-bricks"></i>
+          <h5>Modular & Flexible Design</h5>
+          <p>Easily reconfigure labs to meet evolving needs without costly renovations.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card text-center p-4">
+          <i class="bi bi-shield-lock"></i>
+          <h5>High Durability & Safety</h5>
+          <p>Materials and finishes that meet strict safety and durability standards.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card text-center p-4">
+          <i class="bi bi-gear-wide-connected"></i>
+          <h5>Integrated Utilities</h5>
+          <p>Smart integration of power, gas, water, and data for a streamlined lab experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits">
+    <div class="container">
+      <h2 class="section-title">Benefits of Choosing LabCreator</h2>
+      <ul class="list-unstyled">
+        <li class="benefit-item">Custom tailored lab furniture to match your specific requirements</li>
+        <li class="benefit-item">Saves time and cost with quick installation and minimal downtime</li>
+        <li class="benefit-item">Eco-friendly materials contributing to sustainability goals</li>
+        <li class="benefit-item">Expert support from design to after-sales service</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section id="social-proof" class="container my-5">
+    <h2 class="section-title text-center mb-4">Trusted By Industry Leaders</h2>
+  
+    <div class="project-description mb-5 text-center px-3">
+      <p>
+        At <strong>Chameza Group's LabCreator</strong>, we specialize in delivering innovative modular lab furniture solutions tailored to transform your laboratory environment. 
+        Our projects are executed with precision—from detailed consultation and design to seamless installation—ensuring enhanced productivity, safety, and flexibility. 
+        We partner with leading research institutions and industries to create spaces that inspire innovation and meet evolving scientific demands.
+      </p>
+    </div>
+  
+    <div class="row align-items-center justify-content-center gy-4">
+      <div class="col-md-4">
+        <div class="testimonial p-4 rounded shadow-sm bg-light">
+          <p class="fst-italic">
+            "LabCreator’s modular solutions have revolutionized our lab infrastructure, delivering unmatched flexibility and quality."
+          </p>
+          <strong>- Dr. Sameer Patel, Head of R&D, BioGen Labs</strong>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="testimonial p-4 rounded shadow-sm bg-light">
+          <p class="fst-italic">
+            "Chameza Group’s LabCreator team provided exceptional consultation and flawless installation for our new research facility."
+          </p>
+          <strong>- Ms. Neha Sharma, Lab Manager, Quantum Pharmaceuticals</strong>
+        </div>
+      </div>
+  
+      <div class="col-md-6 d-flex justify-content-center">
+        <div class="logo-slider d-flex gap-4 overflow-hidden position-relative">
+          <div class="slider-track d-flex gap-4" style="animation: slide-logos 18s linear infinite;">
+            <img src="img/11.png" alt="BioGen Labs Logo" class="client-logo" loading="lazy" />
+            <img src="img/12.png" alt="Quantum Pharmaceuticals Logo" class="client-logo" loading="lazy" />
+            <img src="img/13.png" alt="Innovatech Research Logo" class="client-logo" loading="lazy" />
+            <!-- Duplicate logos for continuous sliding -->
+            <img src="img/14.png" alt="BioGen Labs Logo" class="client-logo" loading="lazy" />
+            <img src="img/15.png" alt="Quantum Pharmaceuticals Logo" class="client-logo" loading="lazy" />
+            <img src="img/16.png" alt="Innovatech Research Logo" class="client-logo" loading="lazy" />
+          </div>
+        </div>
+      </div>
+  </section>
+  
+  <!-- About -->
+  <section id="about" class="container my-5">
+    <h2 class="section-title">About LabCreator</h2>
+    <p>
+      As a division of Chameza Group, LabCreator specializes in modular laboratory furniture crafted with precision and sustainability in mind. Our solutions empower labs worldwide with adaptable, ergonomic, and eco-friendly furnishings designed to streamline workflows and foster innovation.
+    </p>
+  </section>
+
+  <section id="project-execution" class="my-16 bg-gray-50 rounded-xl shadow-lg p-12 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-red-700 mb-8 text-center">
+      How Chameza Group Executes Laboratory Projects
+    </h2>
+  
+    <p class="max-w-3xl mx-auto text-center text-gray-700 mb-12 text-lg">
+      At the heart of our success is <strong>LabCreator</strong>, our modular lab furniture system that transforms traditional labs into flexible, efficient, and future-ready spaces. Our project execution process integrates LabCreator’s innovative designs at every step to deliver unmatched quality and customization.
+    </p>
+  
+    <!-- Execution Steps Grid: 2 rows of 3 cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Step 1 -->
+      <div class="execution-step p-6 md:p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-red-600 mb-3">1. In-Depth Consultation</h3>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+          We begin by understanding your unique laboratory needs, workflows, and compliance requirements through detailed discussions with your team.
+        </p>
+      </div>
+  
+      <!-- Step 2 -->
+      <div class="execution-step p-6 md:p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-red-600 mb-3">2. Customized Design & Planning</h3>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+          Our expert designers craft tailored lab layouts and modular solutions, focusing on safety, efficiency, and future scalability.
+        </p>
+      </div>
+  
+      <!-- Step 3 -->
+      <div class="execution-step p-6 md:p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-red-600 mb-3">3. Precision Manufacturing</h3>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+          All lab furniture and equipment are manufactured with stringent quality checks, ensuring durability and compliance with industry standards.
+        </p>
+      </div>
+  
+      <!-- Step 4 -->
+      <div class="execution-step p-6 md:p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-red-600 mb-3">4. Expert Installation & Setup</h3>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+          Skilled technicians handle on-site installation, adhering strictly to project timelines and ensuring flawless setup.
+        </p>
+      </div>
+  
+      <!-- Step 5 -->
+      <div class="execution-step p-6 md:p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-red-600 mb-3">5. Comprehensive Quality Assurance</h3>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+          Post-installation, rigorous inspections guarantee that every detail meets Chameza’s high standards before project handover.
+        </p>
+      </div>
+  
+      <!-- Step 6 -->
+      <div class="execution-step p-6 md:p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-red-600 mb-3">6. Dedicated After-Sales Support</h3>
+        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+          We provide ongoing support and maintenance services, ensuring your laboratory remains fully operational and up-to-date.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <section class="py-16 bg-gray-50 text-center">
+    <h2 class="creative-heading relative inline-block mx-auto max-w-max">
+      Inside the World of Chameza LabCreator
+      <!-- Accent SVG icon (like a small lab flask or spark) -->
+      <svg class="accent-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8 7 7 11 7 14a5 5 0 0010 0c0-3-1-7-5-12z" />
+      </svg>
+    </h2>
+  </section>
+  
+  
+    <div class="lab-container">
+      <!-- Left column group: first two images stacked -->
+      <div class="lab-group">
+        <div class="lab-img-box">
+          <img src="img/lab-design.webp" alt="Lab Design" loading="lazy" />
+          <div class="lab-hover-text">
+            Bespoke lab designs tailored for high-efficiency workflow and compliance.
+          </div>
+        </div>
+        <div class="lab-img-box">
+          <img src="img/modular-lab-furniture.webp" alt="Modular Furniture" loading="lazy" />
+          <div class="lab-hover-text">
+            Modular lab furniture engineered for adaptability and future growth.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right column group: next two images stacked -->
+      <div class="lab-group">
+        <div class="lab-img-box">
+          <img src="img/lab-installation.webp" alt="Installation Team" loading="lazy" />
+          <div class="lab-hover-text">
+            Installation precision from our trained field engineers across India.
+          </div>
+        </div>
+        <div class="lab-img-box">
+          <img src="img/quality-check.webp" alt="Quality Check" loading="lazy" />
+          <div class="lab-hover-text">
+            Every module passes multi-stage testing for maximum reliability.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Centered bottom image -->
+      <div class="lab-img-box centered">
+        <img src="img/after-sales-services.webp" alt="After Sales Support" loading="lazy" />
+        <div class="lab-hover-text">
+          Comprehensive after-sales support ensures long-term client satisfaction.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <br>
+  
+  
+
+
+  <!-- FAQs -->
+  <section id="faqs" class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq1-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq1"
+            aria-expanded="true"
+            aria-controls="faq1">
+            What materials do you use for lab furniture?
+          </button>
+        </h2>
+        <div
+          id="faq1"
+          class="accordion-collapse collapse show"
+          aria-labelledby="faq1-header"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            We use eco-friendly, durable materials like high-pressure laminates, powder-coated steel, and chemical-resistant surfaces designed for lab safety.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq2-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq2"
+            aria-expanded="false"
+            aria-controls="faq2"
+          >
+            Can I customize the furniture layout?
+          </button>
+        </h2>
+        <div
+          id="faq2"
+          class="accordion-collapse collapse"
+          aria-labelledby="faq2-header"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Absolutely, our modular designs allow easy reconfiguration to suit your evolving lab requirements.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq3-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq3"
+            aria-expanded="true"
+            aria-controls="faq3">
+            What is your warranty policy?
+          </button>
+        </h2>
+        <div
+          id="faq3"
+          class="accordion-collapse collapse show"
+          aria-labelledby="faq3-header"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            We offer a comprehensive 5-year warranty on all our lab furniture and installations, covering manufacturing defects and material quality. Extended warranty options are available upon request.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq4-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq4"
+            aria-expanded="false"
+            aria-controls="faq4"
+          >
+            How long does installation typically take?
+          </button>
+        </h2>
+        <div
+          id="faq4"
+          class="accordion-collapse collapse"
+          aria-labelledby="faq4-header"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Installation time varies based on project scope, but typically ranges from 1-3 weeks. We provide detailed timelines during project planning and work efficiently to minimize disruption to your operations.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq5-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq5"
+            aria-expanded="true"
+            aria-controls="faq5">
+            Do you provide maintenance services?
+          </button>
+        </h2>
+        <div
+          id="faq5"
+          class="accordion-collapse collapse show"
+          aria-labelledby="faq5-header"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Yes, we offer comprehensive maintenance packages including regular inspections, repairs, and updates to ensure your lab furniture remains in optimal condition throughout its lifecycle.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq6-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faq6"
+            aria-expanded="false"
+            aria-controls="faq6"
+          >
+            Can you handle international projects?
+          </button>
+        </h2>
+        <div
+          id="faq6"
+          class="accordion-collapse collapse"
+          aria-labelledby="faq6-header"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Yes, we have experience with international projects and can coordinate shipping, installation, and support worldwide. We ensure compliance with local regulations and standards in each region.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container my-5">
+    <h2 class="section-title">Get in Touch</h2>
+    <form id="leadForm" novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="name" required />
+        <div class="invalid-feedback">Please enter your name.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address *</label>
+        <input type="email" class="form-control" id="email" required />
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+      <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" class="form-control" id="company" />
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message *</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+        <div class="invalid-feedback">Please enter your message.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Inquiry</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <section>
+    <!-- 🌐 Footer Section Start -->
+    <footer style="background-color: #1a1a1a; color: white; padding: 40px 20px; font-family: 'Poppins', sans-serif;">
+      <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+    
+        <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+        <img src="img/logo1.png" alt="LabCreator Logo" style="height: 60px; margin-bottom: 20px; filter: drop-shadow(2px 2px 2px rgba(214, 0, 28, 0.4));"/>
+        <p style="color: #ccc;">Leading Laboratory Furniture & Setup Solutions Provider in India.</p>
+        
+        <div class="address-container">
+          <p class="address-text">
+            <i class="fas fa-map-marker-alt address-icon"></i>
+            <span class="address-line">Head-Office 104 & 103,</span>
+            <span class="address-line">Raj swastik chs ltd., daulat nagar road no.3,</span>
+            <span class="address-line">Post office lane, Maharashtra 400066</span>
+          </p>
+        </div>
+      
+        <p style="color: #ccc;">Phone: <a href="tel:+91 8268222200" style="color: var(--brand-red);">+91 8268222200</a></p>
+        <p style="color: #ccc;">Email: <a href="mailto:inquiry@chameza.in" style="color: var(--brand-red);">inquiry@chameza.in</a></p>
+      </div>
+        <!-- Quick Links -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+          <h4 style="font-size: 2rem; font-weight: 700; color: var(--brand-red); margin-bottom: 20px;">Quick Links</h4>
+          <ul style="list-style: none; padding: 0; color: #ccc;">
+            <li><a href="https://chameza.in/" style="color: #ccc; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
+            <li><a href="https://chameza.in/about.html" style="color: #ccc; text-decoration: none; transition: color 0.3s ease;">About Us</a></li>
+            <li><a href="https://wa.me/918268222200" style="color: #ccc; text-decoration: none; transition: color 0.3s ease;">Contact</a></li>
+            <li><a href="https://chameza.in/Out-projects.html" style="color: #ccc; text-decoration: none; transition: color 0.3s ease;">Our Project</a></li>
+            <li><a href="https://chameza.in/our_certification.html" style="color: #ccc; text-decoration: none; transition: color 0.3s ease;">Certifications</a></li>
+          </ul>
+        </div>
+    
+        <!-- Call to Action -->
+        <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+          <h4 style="font-size: 2rem; font-weight: 700; color: var(--brand-red); margin-bottom: 20px;">Get in Touch</h4>
+          <p style="color: #ccc;">Need help with your lab setup? 
+                     <br> Our experts are ready to assist you.</p>
+             <br>
+          <a href="https://wa.me/918268222200" target="_blank" style="background-color: var(--brand-red); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">📲 Chat on WhatsApp</a>
+        </div>
+    
+      </div>
+    
+      <hr style="margin: 30px auto; border: 1px solid #333; max-width: 90%;">
+    
+      <div style="text-align: center; color: #777;">
+        &copy; 2025 Chameza.in | All Rights Reserved.
+      </div>
+    </footer>
+    <!-- 🌐 Footer Section End -->
+    </section>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+
+    // Form validation
+    (function () {
+      "use strict";
+
+      const form = document.getElementById("leadForm");
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (!form.checkValidity()) {
+            form.classList.add("was-validated");
+          } else {
+            alert("Thank you for your inquiry! We will get back to you soon.");
+            form.reset();
+            form.classList.remove("was-validated");
+          }
+        },
+        false
+      );
+    })();
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const steps = document.querySelectorAll('.execution-step');
+
+  function revealOnScroll() {
+    const triggerPoint = window.innerHeight * 0.85;
+
+    steps.forEach(step => {
+      const top = step.getBoundingClientRect().top;
+      if (top < triggerPoint) {
+        step.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Initial check
+});
+
+
+
+
+  
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all accordion buttons
+      const accordionButtons = document.querySelectorAll('.accordion-button');
+      let currentlyOpen = document.querySelector('.accordion-button:not(.collapsed)');
+
+      // Add click event listener to each button
+      accordionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // If this button is not the currently open one
+          if (this !== currentlyOpen) {
+            // Close the currently open item if it exists
+            if (currentlyOpen) {
+              currentlyOpen.classList.add('collapsed');
+              const targetId = currentlyOpen.getAttribute('data-bs-target');
+              const targetContent = document.querySelector(targetId);
+              targetContent.classList.remove('show');
+            }
+            // Update the currently open item
+            currentlyOpen = this;
+          }
+        });
+      });
+    });
+  
+
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeo3l4FbRpz46FdO8S9JXbZjH/cK6FVfJW7X0Sjp5p7JgX1N"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
